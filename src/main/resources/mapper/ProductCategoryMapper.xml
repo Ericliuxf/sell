@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.synjones.mapper.ProductCategoryMapper">
+
+    <!-- 因为数据库字段与对象属性名称不一致，所以使用resultmap，否则查询结果为空-->
+    <resultMap id="categoryMap" type="com.synjones.dataobject.ProductCategory">
+        <id column="category_id" property="categoryId"></id>
+        <id column="category_name" property="categoryName"></id>
+        <id column="category_type" property="categoryType"></id>
+    </resultMap>
+
+    <select id="selectByXml" resultMap="categoryMap" parameterType="java.lang.Integer">
+        select
+          category_id,category_name,category_type
+          from product_category
+          where category_type = #{categoryType}
+    </select>
+</mapper>

@@ -1,0 +1,50 @@
+模块：
+    商品类目：查询单个商品类目(categoryId),
+              查询全部商品类目,
+              根据商品类目查询全部商品(CategoryType)
+
+    商品列表：保存(productInfo),
+              查询单个商品(productId),
+              查询全部上架商品(ProductStatusEnum.UP),
+              查询全部商品(Pageable),
+              增加库存(List<CartDTO>),
+              减少库存(List<CartDTO>)
+
+    订单列表：创建订单(OrderDTO),
+              查询订单详情(orderId),
+              查询个人全部订单(openid,Pageable),
+              取消订单(OrderDTO),
+              完结订单(OrderDTO),
+              支付订单(OrderDTO),
+              查询全部订单(Pageable)
+
+    卖家信息：保存(sellerInfo),
+              查询卖家信息(sellerInfoId)
+
+    微信支付：支付(orderDTO),
+              异步通知(notifyData)
+
+    微信模板：消息推送(orderDTO)
+
+    WebSocket：两种实现方式: jdk, h5（本项目使用）
+               消息推送
+
+    分布式锁：加锁
+              解锁
+
+
+    AOP拦截：切点, @PointCut
+             前置通知, @Before
+
+        流程：设置切点，在进入卖家端前进行拦截，查询cookie和redis中token，如果查不到，抛出异常。
+              处理异常(@ControllerAdvice @ExceptionHandler)，跳转到扫码登陆页面，获取openid。
+              在登陆页面，redis保存openid，设置cookie，进入卖家端管理。
+
+    微信授权：获取code,
+              获取openid,
+
+              扫码登陆,获取code,
+              扫码登陆，获取openid
+
+
+    序列化工具：

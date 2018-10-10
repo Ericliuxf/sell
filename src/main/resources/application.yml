@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123
+    url: jdbc:mysql://172.16.11.155:3306/wechatsellproduct?CharacterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    database:
+  jooq:
+    sql-dialect: org.hibernate.dialect.MySQL5Dialect
+  jackson:
+    default-property-inclusion: non_null  #返回的json不显示null
+  redis:
+    host: 172.16.11.155
+    port: 6379
+    password: 123
+  activemq:
+    broker-url: tcp://172.16.11.155:61616
+
+server:
+  context-path: /sell
+  port: 80
+
+wechat:
+  appid: wx6b95e2d4996dd55e       #微信公众平台id，用于微信支付
+  secret: a4855f9722997ae33494bdd6594fe6ad    #微信公众平台密钥
+  openAppid:      #开放平台appId，用于创建网站应用等，用于扫码登陆
+  openSecret:
+  mchId:       #商户号
+  mchKey:      #商户密钥
+  keyPath:     #商户证书路径
+  notifyUrl:  http://cyansell.top/sell/pay/notify #异步通知路径
+
+  templateId:
+    orderStatus: templateId
+
+projectUrl:
+  wechatMpAuthorize: http://cyansell.top
+  wechatOpenAuthorize: http://cyansell.top
+  sell: http://cyansell.top
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+logging:
+  level:
+    com.synjones.mapper: trace
